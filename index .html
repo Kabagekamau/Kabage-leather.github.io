@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMAU LEATHER ENTERPRISES</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            /* Made background more vibrant with rainbow gradient */
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
+            min-height: 100vh;
+            animation: gradientShift 10s ease infinite;
+        }
+
+        /* Added animated gradient background */
+        @keyframes gradientShift {
+            0% { background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%); }
+            25% { background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 25%, #96ceb4 50%, #feca57 75%, #ff6b6b 100%); }
+            50% { background: linear-gradient(135deg, #45b7d1 0%, #96ceb4 25%, #feca57 50%, #ff6b6b 75%, #4ecdc4 100%); }
+            75% { background: linear-gradient(135deg, #96ceb4 0%, #feca57 25%, #ff6b6b 50%, #4ecdc4 75%, #45b7d1 100%); }
+            100% { background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            /* Made header more colorful with purple gradient */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            /* Made subtitle bright yellow */
+            color: #ffd700;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            /* Added colorful border */
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        /* Added colorful border effect */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .card-header {
+            /* Made card headers more colorful */
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            /* Added colorful backgrounds to stat items */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item:nth-child(1) {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .stat-item:nth-child(2) {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+        }
+
+        .stat-item:nth-child(3) {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            /* Added colorful borders to product cards */
+            border: 3px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:nth-child(1) { border-color: #ff6b6b; }
+        .product-card:nth-child(2) { border-color: #4ecdc4; }
+        .product-card:nth-child(3) { border-color: #45b7d1; }
+        .product-card:nth-child(4) { border-color: #96ceb4; }
+        .product-card:nth-child(5) { border-color: #feca57; }
+        .product-card:nth-child(6) { border-color: #ff9ff3; }
+        .product-card:nth-child(7) { border-color: #54a0ff; }
+        .product-card:nth-child(8) { border-color: #5f27cd; }
+        .product-card:nth-child(9) { border-color: #00d2d3; }
+        .product-card:nth-child(10) { border-color: #ff9f43; }
+        .product-card:nth-child(11) { border-color: #10ac84; }
+        .product-card:nth-child(12) { border-color: #ee5a24; }
+        .product-card:nth-child(13) { border-color: #0abde3; }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        /* Added product descriptions section */
+        .product-descriptions {
+            margin-top: 3rem;
+        }
+
+        .description-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+        }
+
+        .description-card:nth-child(1) { border-left-color: #ff6b6b; }
+        .description-card:nth-child(2) { border-left-color: #4ecdc4; }
+        .description-card:nth-child(3) { border-left-color: #45b7d1; }
+        .description-card:nth-child(4) { border-left-color: #96ceb4; }
+        .description-card:nth-child(5) { border-left-color: #feca57; }
+        .description-card:nth-child(6) { border-left-color: #ff9ff3; }
+        .description-card:nth-child(7) { border-left-color: #54a0ff; }
+        .description-card:nth-child(8) { border-left-color: #5f27cd; }
+        .description-card:nth-child(9) { border-left-color: #00d2d3; }
+        .description-card:nth-child(10) { border-left-color: #ff9f43; }
+
+        .description-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .description-text {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Leadership Grid */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            /* Added colorful backgrounds to leader cards */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .leader-card:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .leader-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .leader-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .leader-title {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .leader-details {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Assets Grid */
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Made asset cards more colorful */
+        .assets-grid .card:nth-child(1) .card-header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .assets-grid .card:nth-child(2) .card-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .asset-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .asset-item:last-child {
+            border-bottom: none;
+        }
+
+        .asset-name {
+            font-weight: 500;
+        }
+
+        .asset-value {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .property-details {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .property-location {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-rent {
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .property-total {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Personal Section */
+        .personal-card {
+            /* Made personal section more colorful */
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            text-align: center;
+        }
+
+        .personal-header {
+            /* Made personal header more vibrant */
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+
+        .milestone-content {
+            padding: 2rem;
+        }
+
+        .fiancee-info {
+            margin-bottom: 2rem;
+        }
+
+        .fiancee-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .fiancee-code {
+            color: #666;
+        }
+
+        .dating-period {
+            /* Made dating period card more colorful */
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .engagement-announcement {
+            /* Made engagement announcement more vibrant */
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .engagement-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .engagement-date {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            /* Made section titles colorful with gradient text */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            /* Made footer more colorful */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        footer .tagline {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        footer .established {
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .assets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>KAMAU LEATHER ENTERPRISES</h1>
+            <p>Premium Leather Products & Manufacturing</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Business Overview -->
+        <section>
+            <div class="card">
+                <div class="card-header">
+                    <h2>🏢 Business Overview 2025</h2>
+                </div>
+                <div class="card-content">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">KES 350M</div>
+                            <div class="stat-label">Capital Investment</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">KES 323M</div>
+                            <div class="stat-label">Annual Revenue</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">KES 203M</div>
+                            <div class="stat-label">Net Profit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products & Services -->
+        <section>
+            <h2 class="section-title">Our Premium Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🔗</div>
+                    <div class="product-name">Leather Belts</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">👞</div>
+                    <div class="product-name">Premium Shoes</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">👖</div>
+                    <div class="product-name">Leather Trousers</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🧥</div>
+                    <div class="product-name">Luxury Jackets</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">👜</div>
+                    <div class="product-name">Handbags</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🎒</div>
+                    <div class="product-name">Backpacks</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">👢</div>
+                    <div class="product-name">Boots</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🧤</div>
+                    <div class="product-name">Gloves</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">💼</div>
+                    <div class="product-name">Briefcases</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">👛</div>
+                    <div class="product-name">Wallets</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🏍️</div>
+                    <div class="product-name">Motorcycle Gear</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🪑</div>
+                    <div class="product-name">Furniture</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">⌚</div>
+                    <div class="product-name">Watch Straps</div>
+                </div>
+            </div>
+
+            <!-- Added detailed product descriptions -->
+            <div class="product-descriptions">
+                <h3 class="section-title">Product Excellence</h3>
+                
+                <div class="description-card">
+                    <h4 class="description-title">Premium Leather Belts & Accessories</h4>
+                    <p class="description-text">Our signature leather belts are crafted from the finest full-grain leather, featuring hand-stitched details and premium buckles. Each belt undergoes a meticulous tanning process that ensures durability and develops a beautiful patina over time. We offer classic dress belts, casual everyday wear, and luxury designer pieces that complement any wardrobe.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Luxury Footwear Collection</h4>
+                    <p class="description-text">From elegant dress shoes to rugged boots, our footwear collection represents the pinnacle of leather craftsmanship. Using traditional cobbling techniques combined with modern comfort technology, each pair is built to last generations. Our shoes feature premium leather uppers, leather-lined interiors, and durable construction that improves with age.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Designer Leather Apparel</h4>
+                    <p class="description-text">Our leather trousers and jackets are fashion statements that never go out of style. Made from supple, carefully selected hides, each garment is tailored to perfection. Our jackets range from classic motorcycle styles to sophisticated blazers, while our leather trousers offer both comfort and durability for the modern lifestyle.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Professional Bags & Briefcases</h4>
+                    <p class="description-text">Our business collection includes handcrafted briefcases, laptop bags, and professional accessories designed for the modern executive. Each piece features multiple compartments, premium hardware, and reinforced construction. These bags are built to withstand daily use while maintaining their professional appearance and developing character over time.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Fashion Handbags & Purses</h4>
+                    <p class="description-text">Our women's collection showcases elegant handbags, clutches, and purses that combine functionality with timeless style. From spacious totes perfect for daily use to delicate evening bags for special occasions, each piece is carefully designed with attention to both form and function, featuring quality hardware and luxurious linings.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Adventure & Travel Gear</h4>
+                    <p class="description-text">Our backpacks and travel accessories are designed for the adventurous spirit. Built with reinforced stitching, weather-resistant treatments, and ergonomic design, these pieces can handle any journey. From day packs to large expedition backpacks, each piece combines rugged durability with sophisticated leather craftsmanship.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Protective Motorcycle Gear</h4>
+                    <p class="description-text">Safety meets style in our motorcycle leather collection. Our jackets, pants, and gloves provide essential protection while maintaining the classic aesthetic that riders love. Each piece is reinforced in critical areas, features premium armor pockets, and is designed to provide both protection and comfort during long rides.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Luxury Home Furnishings</h4>
+                    <p class="description-text">Extend the luxury of leather into your living space with our furniture collection. From executive office chairs to elegant sofas, our furniture pieces are built with the same attention to detail as our accessories. Each piece features premium leather upholstery, solid construction, and timeless designs that enhance any interior.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Small Leather Goods</h4>
+                    <p class="description-text">Our collection of wallets, cardholders, and small accessories represents affordable luxury. Each piece is crafted with the same attention to detail as our larger items, featuring premium leather, precise stitching, and thoughtful design. These everyday essentials are built to last and improve with age and use.</p>
+                </div>
+
+                <div class="description-card">
+                    <h4 class="description-title">Custom & Bespoke Services</h4>
+                    <p class="description-text">Beyond our standard collection, we offer custom leather goods tailored to your exact specifications. Our master craftsmen can create unique pieces, personalized gifts, or corporate items that reflect your individual style or brand identity. From custom embossing to completely bespoke designs, we bring your leather goods vision to life with uncompromising quality and attention to detail.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section>
+            <h2 class="section-title">Leadership Team</h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-name">BAGE</div>
+                    <div class="leader-title">CEO & Owner</div>
+                    <div class="leader-details">Founder and Chief Executive Officer</div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-name">Joyce Mukuhi</div>
+                    <div class="leader-title">Co-Managing Director</div>
+                    <div class="leader-details">KES 20M Profit Share</div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-name">Joyce Waithera</div>
+                    <div class="leader-title">Co-Managing Director</div>
+                    <div class="leader-details">KES 20M Profit Share</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Assets -->
+        <section>
+            <h2 class="section-title">Personal Assets</h2>
+            <div class="assets-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>🚗 Vehicle Collection</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="asset-item">
+                            <span class="asset-name">Jeep Grand Cherokee</span>
+                            <span class="asset-value">KES 7,000,000</span>
+                        </div>
+                        <div class="asset-item">
+                            <span class="asset-name">Land Cruiser V8 (Sharon's)</span>
+                            <span class="asset-value">KES 9,500,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>🏠 Real Estate</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="property-details">3-Bedroom House</div>
+                        <div class="property-location">Kentmare/Tigoni</div>
+                        <div class="property-rent">KES 250K/month</div>
+                        <div class="property-total">2025 Accommodation: KES 3M</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Life -->
+        <section>
+            <div class="card personal-card">
+                <div class="card-header personal-header">
+                    <h2>❤️ Personal Milestones 2025</h2>
+                </div>
+                <div class="milestone-content">
+                    <div class="fiancee-info">
+                        <div class="fiancee-name">Sharon Nyambura</div>
+                        <!-- Updated SD5810 to SD58 -->
+                        <div class="fiancee-code">Fiancée • SD58</div>
+                    </div>
+                    <div class="dating-period">
+                        <div style="color: #333; margin-bottom: 0.5rem; font-weight: 600;">10 months of dating</div>
+                        <div style="font-size: 0.9rem; color: #666;">February - December 2025</div>
+                    </div>
+                    <div class="engagement-announcement">
+                        <div class="engagement-text">💍 Engaged 💍</div>
+                        <div class="engagement-date">December 29th, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>KAMAU LEATHER ENTERPRISES</h3>
+            <p class="tagline">Premium Quality • Exceptional Craftsmanship • Trusted Excellence</p>
+            <p class="established">Est. 2025 • Kenya</p>
+        </div>
+    </footer>
+</body>
+</html>
